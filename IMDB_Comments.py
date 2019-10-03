@@ -1,14 +1,37 @@
 # Classification of the comments concerning a movie
 
-# Load the dataset
-import keras
+import os
 
-(x_train, y_train), (x_test, y_test) = keras.datasets.imdb.load_data(path="imdb.npz",
-                                                                     num_words=None,
-                                                                     skip_top=0,
-                                                                     maxlen=100,
-                                                                     seed=113,
-                                                                     start_char=1,
-                                                                     oov_char=2,
-                                                                     index_from=3)
+# Load the dataset
+path = "/Users/morgane/Desktop/DL/aclImdb/"
+
+train_pos = ''
+train_neg = ''
+test_pos = ''
+test_neg = ''
+comment = ''
+
+for elt in os.listdir(path + "train/pos"):
+    file = open(elt,'r')
+    comment = file.read()
+    file.close()
+    train_pos = train_pos + comment
+
+for elt2 in os.listdir(path + "‎train/neg"):
+    file2 = open(elt2,'r')
+    comment2 = file2.read()
+    file2.close()
+    train_neg = train_neg + comment2
+
+for elt3 in os.listdir(path + "‎test/pos"):
+    file = open(elt3,'r')
+    comment = file.read()
+    file.close()
+    test_pos = test_pos + comment
+
+for elt4 in os.listdir(path + "test/neg"):
+    file = open(elt4,'r')
+    comment = file.read()
+    file.close()
+    test_neg = test_neg + comment
 
