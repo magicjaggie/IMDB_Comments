@@ -17,7 +17,7 @@ for elt in os.listdir(path + "train/pos"):
     file.close()
     train_pos = train_pos + comment
 
-for elt2 in os.listdir(path + "‎train/neg"):
+for elt2 in os.listdir(path + "train/neg"):
     file = open(elt2,'r')
     comment = file.read()
     file.close()
