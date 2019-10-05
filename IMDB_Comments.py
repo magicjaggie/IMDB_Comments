@@ -1,4 +1,4 @@
-# Classification of the comments concerning a movie
+# Classification of the reviews concerning a movie
 
 import os
 
@@ -39,3 +39,4 @@ for elt4 in os.listdir(str((path + "test/neg").encode('ascii','ignore'))[1:].rep
 # [1:] car b est ajouté lors de la précédente commande à la str
 # replace("'","") car des ' sont ajoutés lors des précédentes commandes
 #print(train_neg[50])
+
