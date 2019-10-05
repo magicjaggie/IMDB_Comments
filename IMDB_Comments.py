@@ -35,4 +35,7 @@ for elt4 in os.listdir(str((path + "test/neg").encode('ascii','ignore'))[1:].rep
     file.close()
     test_neg.append(comment)
 
+# encode('ascii','ignore') -> pour supprimer \u200e
+# [1:] car b est ajouté lors de la précédente commande à la str
+# replace("'","") car des ' sont ajoutés lors des précédentes commandes
 #print(train_neg[50])
