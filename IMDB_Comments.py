@@ -12,26 +12,27 @@ test_neg = []
 comment = ''
 
 for elt in os.listdir(path + "train/pos"):
-    file = open(elt,'r')
+    file = open(path + "train/pos/" + elt,'r')
     comment = file.read()
     file.close()
-    train_pos = train_pos + comment
+    train_pos.append(comment)
 
 for elt2 in os.listdir(path + "train/neg"):
-    file = open(elt2,'r')
+    file = open(path + "train/neg/" + elt2,'r')
     comment = file.read()
     file.close()
-    train_neg = train_neg + comment
+    train_neg.append(comment)
 
-for elt3 in os.listdir(path + "‎test/pos"):
-    file = open(elt3,'r')
+for elt3 in os.listdir(str((path + "‎test/pos").encode('ascii','ignore'))[1:].replace("'","")):
+    file = open(str((path + "‎test/pos/" + elt3).encode('ascii','ignore'))[1:].replace("'",""),'r')
     comment = file.read()
     file.close()
-    test_pos = test_pos + comment
+    test_pos.append(comment)
 
-for elt4 in os.listdir(path + "test/neg"):
-    file = open(elt4,'r')
+for elt4 in os.listdir(str((path + "test/neg").encode('ascii','ignore'))[1:].replace("'","")):
+    file = open(str((path + "test/neg/" + elt4).encode('ascii','ignore'))[1:].replace("'",""),'r')
     comment = file.read()
     file.close()
-    test_neg = test_neg + comment
+    test_neg.append(comment)
 
+#print(train_neg[50])
