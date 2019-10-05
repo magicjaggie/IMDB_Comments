@@ -1,6 +1,7 @@
 # Classification of the reviews concerning a movie
 
 import os
+from keras.models import Sequential
 
 # Load the dataset
 path = "/Users/morgane/Desktop/DL/aclImdb/"
@@ -40,3 +41,4 @@ for elt4 in os.listdir(str((path + "test/neg").encode('ascii','ignore'))[1:].rep
 # replace("'","") car des ' sont ajoutés lors des précédentes commandes
 #print(train_neg[50])
 
+model = Sequential()
