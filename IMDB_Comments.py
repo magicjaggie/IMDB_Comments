@@ -83,10 +83,8 @@ print(Ytrain)
 # On prend le meme nb de mots pour chaque liste
 if len(Xtrain)<=len(Ytrain):
     L = len(Xtrain)
-    del(Ytrain[len(Xtrain):])
 else:
     L = len(Ytrain)
-    del(Xtrain[len(Ytrain):])
 
 
 
@@ -121,11 +119,9 @@ print(Ytest)
 
 # On prend le meme nb de mots pour chaque liste
 if len(Xtest)<=len(Ytest):
-    L = len(Xtest)
-    del(Ytrain[len(Xtest):])
+    L2 = len(Xtest)
 else:
-    L = len(Ytest)
-    del(Xtrain[len(Ytest):])
+    L2 = len(Ytest)
 
 
 
@@ -138,8 +134,8 @@ model.add(Dense(1, activation = 'sigmoid'))
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-model.fit(Xtrain, Ytrain, validation_data=(Xtest,Ytest), epochs=2, batch_size=50)
-scores = model.evaluate(Xtest, Ytest)
+model.fit(Xtrain[:L-1], Ytrain[:L-1], validation_data=(Xtest[:L2-1],Ytest[:L2-1]), epochs=2, batch_size=50)
+scores = model.evaluate(Xtest[L2-1], Ytest[:L2-1])
 
 print("Accuracy: %.2f%%" % (scores[1]*100))
 
