@@ -128,7 +128,7 @@ else:
 # # # # MODEL COMPILATION # # # #
 
 model = Sequential()
-model.add(Dense(12, input_dim=L, activation = 'relu'))
+model.add(Dense(12, input_dim=L, activation = 'relu')) # Wrong kind of layer
 model.add(Dense(8, activation = 'relu'))
 model.add(Dense(1, activation = 'sigmoid'))
 
